@@ -11,14 +11,11 @@ fun main() {
 
 fun part1(input: List<String>): Long = input.treesForRoute(3, 1)
 
-fun part2(input: List<String>): Long {
-
-    return input.treesForRoute(1, 1) *
-            input.treesForRoute(3, 1) *
-            input.treesForRoute(5, 1) *
-            input.treesForRoute(7, 1) *
-            input.treesForRoute(1, 2)
-}
+fun part2(input: List<String>): Long = input.treesForRoute(1, 1) *
+        input.treesForRoute(3, 1) *
+        input.treesForRoute(5, 1) *
+        input.treesForRoute(7, 1) *
+        input.treesForRoute(1, 2)
 
 fun List<String>.treesForRoute(xd: Int, yd: Int): Long {
     var treeCount = 0L
