@@ -15,7 +15,7 @@ fun main() {
     println(part2(input))
 }
 
-fun part1(input: List<Policy>): Int = input.filter(::isValidPart1).count()
+fun part1(input: List<Policy>): Int = input.count(::isValidPart1)
 
 fun isValidPart1(policy: Policy): Boolean =
         policy.pw.count {
