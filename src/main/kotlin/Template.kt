@@ -1,5 +1,3 @@
-// package day0x
-
 import parse
 
 fun main() {
