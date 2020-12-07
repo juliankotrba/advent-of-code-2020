@@ -38,9 +38,11 @@ fun main() {
     println(part2(input))
 }
 
-fun part1(bagMap: Map<Bag, Set<Contained>>) =
-        bagMap.map {
-            traversePart1(it.key, bagMap)
+fun part1(bagMap: Map<Bag, Set<Contained>>) = bagMap
+        .map {
+            if (it.key != "shiny gold") {
+                traversePart1(it.key, bagMap)
+            } else 0
         }.count { it > 0 }
 
 fun traversePart1(currentBag: Bag, bagMap: Map<Bag, Set<Contained>>): Int {
@@ -61,7 +63,7 @@ fun part2(bagMap: Map<Bag, Set<Contained>>): Int = traversePart2("shiny gold", b
 fun traversePart2(currentBag: Bag, bagMap: Map<Bag, Set<Contained>>): Int {
     var count = 0
     bagMap.getValue(currentBag).forEach {
-        count += it.second + it.second*traversePart2(it.first, bagMap)
+        count += it.second + it.second * traversePart2(it.first, bagMap)
     }
     return count
 }
